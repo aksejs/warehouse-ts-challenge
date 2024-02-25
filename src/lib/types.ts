@@ -12,10 +12,8 @@ export type ProductResponse = {
   name: string;
   description?: string;
   stock: number;
-  unitPrice: number;
+  unitPrice?: number;
 };
-
-export type ToolsResponse = Omit<ProductResponse, "unitPrice">;
 
 export enum ProductType {
   HeatPump = "heatPump",
@@ -23,11 +21,7 @@ export enum ProductType {
   Tool = "tool",
 }
 
-export interface Product extends ProductResponse {
-  type: ProductType;
-}
-
-export type Package = {
+export type PackageItem = {
   id: string;
   name: string;
   description?: string;
@@ -37,7 +31,12 @@ export type Package = {
 export type Invoice = {
   id: string;
   orderId: string;
-  packages: Package[];
-  installationDate: string;
+  articles: string[];
   totalPrice: number;
+};
+
+export type Packaging = {
+  orderId: string;
+  items: PackageItem[];
+  installationDate: string;
 };

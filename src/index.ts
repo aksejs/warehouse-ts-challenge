@@ -1,26 +1,23 @@
-import { Api } from "./api";
-import { OrderService } from "./order";
-import { ProductsStore } from "./product/store";
+import { Api } from "./lib/api";
+import { OrderService } from "./services";
+import { OrdersStore, ProductsStore } from "./store";
 
 async function main() {
   const api = new Api();
-  const store = new ProductsStore(api);
+  const productsStore = new ProductsStore(api);
+  const ordersStore = new OrdersStore(api);
 
-  const [orders] = await Promise.all([
-    api.fetchOrders(),
-    store.fetchProducts(),
-  ]);
+  await Promise.all([productsStore.init(), ordersStore.init()]);
 
-  const orderService = new OrderService(store, orders);
+  const orderService = new OrderService(productsStore, ordersStore);
 
   orderService.processOrders();
-  store.getRestockList().forEach((product) => {
-    console.log(
-      `Product ${product.name} (${product.productCode}) needs restock`
-    );
+  productsStore.getRestockList().forEach((product) => {
+    console.log(`Product ${product.name} is out of stock`);
+  });
+  ordersStore.getCancelledOrders().forEach((order) => {
+    console.log(`Order ${order.id} has been cancelled`);
   });
 }
 
-main().catch((error) => {
-  console.error("Error processing orders", error);
-});
+main();
