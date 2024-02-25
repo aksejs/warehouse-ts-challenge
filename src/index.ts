@@ -15,9 +15,9 @@ async function main() {
   productsStore.getRestockList().forEach((product) => {
     console.log(`Product ${product.name} is out of stock`);
   });
-  ordersStore.getCancelledOrders().forEach((order) => {
-    console.log(`Order ${order.id} has been cancelled`);
-  });
 }
 
-main();
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
