@@ -1,4 +1,4 @@
-import { Api } from "../src/api";
+import { Api } from "../src/lib/api";
 import { getJSON } from "../src/lib/helpers";
 import { OrderReponse, ProductResponse, ProductType } from "../src/lib/types";
 import { Order } from "../src/models/order";

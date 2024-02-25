@@ -4,7 +4,7 @@
   "description": "HeatTransformers Code Challenge, in Typescript",
   "main": "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "dev": "nodemon ./src/index.ts",
     "start": "ts-node ./src/index.ts",
     "serve": "json-server ./src/data-server/index.js",
