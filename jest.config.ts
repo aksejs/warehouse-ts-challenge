@@ -1,6 +1,7 @@
 import type { JestConfigWithTsJest } from "ts-jest";
 
 export default {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
+  roots: ["<rootDir>/src/", "<rootDir>/__test__/"],
+  preset: "ts-jest",
+  testEnvironment: "node",
 } satisfies JestConfigWithTsJest;

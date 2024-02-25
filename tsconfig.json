@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": "./src",
     "sourceMap": true,
     "declaration": false,
     "strict": true,
@@ -10,7 +11,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "skipDefaultLibCheck": true
+    "skipDefaultLibCheck": true,
+    "types": ["jest", "node"]
   },
   "include": ["src/**/*.ts", "src/*.ts"],
   "exclude": ["node_modules"]

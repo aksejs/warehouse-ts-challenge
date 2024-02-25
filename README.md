@@ -7,7 +7,7 @@ Typescript Challenge for medior/senior
 Build packages based on the `orders` list found on the API.
 
 - Build complete packages of required articles
-    - Connect an invoice with total price & articles
+  - Connect an invoice with total price & articles
 - Produce a restocking list for items that will run out of stock soon
 - Throw helpful warnings when orders are unable to be executed
 - 💥BONUS💥: unit test your code with `jest`
@@ -34,5 +34,3 @@ Your solution should be runnable with `npm run start`.
 ## Run tests
 
 Run tests with `npm run test`.
-
-
